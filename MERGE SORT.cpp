@@ -1,23 +1,24 @@
 
 #include<stdlib.h> 
 #include<iostream>
-using namespace std; 
-void merge(int arr[], int l, int m, int r) 
+using namespace std;
+int size;
+/*void merge(int arr[], int l, int m, int r) 
 { 
 	int i, j, k; 
 	int n1 = m - l + 1; 
 	int n2 = r - m; 
 
-	/* create temp arrays */
+	 create temp arrays 
 	int L[n1], R[n2]; 
 
-	/* Copy data to temp arrays L[] and R[] */
+	 Copy data to temp arrays L[] and R[] 
 	for (i = 0; i < n1; i++) 
 		L[i] = arr[l + i]; 
 	for (j = 0; j < n2; j++) 
 		R[j] = arr[m + 1+ j]; 
 
-	/* Merge the temp arrays back into arr[l..r]*/
+	 Merge the temp arrays back into arr[l..r]
 	i = 0; // Initial index of first subarray 
 	j = 0; // Initial index of second subarray 
 	k = l; // Initial index of merged subarray 
@@ -36,8 +37,8 @@ void merge(int arr[], int l, int m, int r)
 		k++; 
 	} 
 
-	/* Copy the remaining elements of L[], if there 
-	are any */
+	Copy the remaining elements of L[], if there 
+	are any 
 	while (i < n1) 
 	{ 
 		arr[k] = L[i]; 
@@ -45,61 +46,59 @@ void merge(int arr[], int l, int m, int r)
 		k++; 
 	} 
 
-	/* Copy the remaining elements of R[], if there 
-	are any */
+	Copy the remaining elements of R[], if there 
+	are any 
 	while (j < n2) 
 	{ 
 		arr[k] = R[j]; 
 		j++; 
 		k++; 
 	} 
-} 
-/*void merge(int arr[], int left, int middle, int right) 
-{ 
-	int i, j, k; 
-	int n1 = middle - left + 1; //first array element
-	int n2 = right - middle; // second array element
+}*/ 
+void merge(int a[], int beg, int mid, int end)  
+{  
+    int i=beg,j=mid+1,k,index = beg;  
+    int temp[size];  
+    while(i<=mid && j<=end)  
+    {  
+        if(a[i]<a[j])  
+        {  
+            temp[index] = a[i];  
+            i = i+1;  
+        }  
+        else   
+        {  
+            temp[index] = a[j];  
+            j = j+1;   
+        }  
+        index++;  
+    }  
+    if(i>mid)  
+    {  
+        while(j<=end)  
+        {  
+            temp[index] = a[j];  
+            index++;  
+            j++;  
+        }  
+    }  
+    else   
+    {  
+        while(i<=mid)  
+        {  
+            temp[index] = a[i];  
+            index++;  
+            i++;  
+        }  
+    }  
+    k = beg;  
+    while(k<index)  
+    {  
+        a[k]=temp[k];  
+        k++;  
+    }  
+}  
 
-	int L[n1], R[n2]; 
-
-	/* Copy data to temp arrays L[] and R[] */
-	/*for (i = 0; i < n1; i++) 
-		L[i] = arr[left + i]; 
-	for (j = 0; j < n2; j++) 
-		R[j] = arr[middle + 1+ j]; 
-
-	i = 0; // Initial index of first subarray 
-	j = 0; // Initial index of second subarray 
-	k = 1; // Initial index of merged subarray 
-	while (i < n1 && j < n2) 
-	{ 
-		if (L[i] <= R[j]) 
-		{ 
-			arr[k] = L[i]; 
-			i++; 
-		} 
-		else
-		{ 
-			arr[k] = R[j]; 
-			j++; 
-		} 
-		k++; 
-	} 
-
-	while (i < n1) 
-	{ 
-		arr[k] = L[i]; 
-		i++; 
-		k++; 
-	} 
-
-	while (j < n2) 
-	{ 
-		arr[k] = R[j]; 
-		j++; 
-		k++; 
-	} 
-} */
 
 void mergeSort(int arr[], int left, int right) 
 { 
@@ -128,7 +127,7 @@ void printArray(int A[], int size)
 
 int main()
 {
-	int size;
+	
 	
 	cout<<"\nENTER SIZE OF ARRAY: ";
 	cin>>size;
