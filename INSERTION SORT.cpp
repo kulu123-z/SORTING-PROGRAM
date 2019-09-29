@@ -2,14 +2,16 @@
 #include <bits/stdc++.h> 
 using namespace std; 
 
-
+//insertionSort function that will sort array element using insertion sort method
 void insertionSort(int arr[], int n) 
 { 
 	int i, key, j; 
+	//here we assume that first element is on right place so loop start from second element
 	for (i = 1; i < n; i++) 
 	{ 
 		key = arr[i]; 
 		j = i - 1; 
+		//compare all element whose index is less then key index and also key is less then compare element
 		while (j >= 0 && arr[j] > key) 
 		{ 
 			arr[j + 1] = arr[j]; 
@@ -18,7 +20,7 @@ void insertionSort(int arr[], int n)
 		arr[j + 1] = key; 
 	} 
 } 
-
+//print function that print array element
 void printArray(int arr[], int n) 
 { 
 	int i; 
@@ -27,7 +29,7 @@ void printArray(int arr[], int n)
 	cout << endl; 
 } 
 
-
+//main function
 int main()
 {
 	int size;
@@ -42,9 +44,9 @@ int main()
 		cin>>*(array + i);
 	
 	cout<<"\nARRAY WITHOUT SORT: ";
-	printArray(array, size);
+	printArray(array, size);//call to printArray function
 	
-	insertionSort(array, size);
+	insertionSort(array, size);//call to insertionSort function
 	
 	cout<<"\nSORTED ARRAY USING HEAP SORT: ";
 	printArray(array,size);
