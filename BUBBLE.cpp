@@ -49,7 +49,7 @@ void bubbleSort(int a[],int size)
 				a[j+1] = temp;
 			}
 		}
-		//there is swap is occured during pass if array is sorted so that there is no need to go for further pass and return sorted array
+		//there is no swap is occured during pass if array is sorted so that there is no need to go for further pass and return sorted array
 		if(flag == 0)
 		{
 			cout<<"\nROUND: "<<i<<endl;//in how many round(pass) your array is sorted
