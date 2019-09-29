@@ -43,6 +43,30 @@ void printArray(int *array, int n)
     }  
     return loc;  
 }  
+void swap(int *val1, int *val2)
+{
+    int temp = *val1;
+    *val1 = *val2;
+    *val2 = temp;
+}
+
+int partition(int *array, int start, int end)
+{
+    int pIndex = start;
+    int pivot = *(array + end);
+    
+    for(int i = start; i<end; i++)
+    {
+        if(*(array + i) <= pivot)
+        {
+            swap(array[i],array[pIndex]);
+            pIndex++;
+        }
+    }
+    swap(array[pIndex], array[end]);
+    return(pIndex);
+}
+
 void quickSort(int a[], int beg, int end)  
 {  
       
@@ -54,6 +78,7 @@ void quickSort(int a[], int beg, int end)
         quickSort(a, loc+1, end);  
     }  
 */
+
 void quickSort(int *array, int low, int high)
 {
     int i = low;
