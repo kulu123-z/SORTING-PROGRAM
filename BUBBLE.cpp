@@ -1,5 +1,5 @@
 #include<iostream>//include iostream
-using namespace std;//for standard nput and output
+using namespace std;//for standard input and output
 
 void bubbleSort(int [],int );// declaration of bubbleSort function
 
@@ -32,7 +32,7 @@ int main()
 void bubbleSort(int a[],int size)
 {
 	int temp=0,flag=0;
-	//how many pass are require fro sorting? = n-1
+	//how many pass are require for sorting? = n-1
 	for(int i=1;i<=size-1;i++)
 	{
 		flag=0;
